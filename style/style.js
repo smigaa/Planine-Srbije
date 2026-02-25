@@ -216,7 +216,7 @@ const formContainer = document.getElementById("formContainer");
 
 //FORMA DINAMICKA
 formContainer.innerHTML = `
-  <form id="myForm" method="get" action="#myForm">
+  <form id="myForm" method="post" action="#myForm">
     ${formFields.map(field => `
       <div class="row mb-3">
         <label class="col-md-4 col-form-label" for="${field.id}">${field.label}</label>
@@ -394,6 +394,7 @@ function createFooter() {
     </div>
   `;
 }
+
 
 
 
