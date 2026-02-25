@@ -216,7 +216,7 @@ const formContainer = document.getElementById("formContainer");
 
 //FORMA DINAMICKA
 formContainer.innerHTML = `
-  <form id="myForm">
+  <form id="myForm" method="get" action="#myForm">
     ${formFields.map(field => `
       <div class="row mb-3">
         <label class="col-md-4 col-form-label" for="${field.id}">${field.label}</label>
@@ -293,7 +293,7 @@ const validationRules = [
   }
 ];
 
-// greska ako nije validno
+// greska ako nije validnoSS
 
 validationRules.forEach(rule => {
   const input = document.getElementById(rule.id);
@@ -381,7 +381,7 @@ function createFooter() {
 
   let linksHTML = footerLinks.map(link => `
       <a href="${link.url}" class="text-white mx-3 text-decoration-none">
-        <i class="bi ${link.icon}"></i> ${link.name}
+        <i class="${link.icon}"></i> ${link.name}
       </a>
   `).join("");
 
