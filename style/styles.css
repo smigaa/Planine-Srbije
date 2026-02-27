@@ -132,11 +132,11 @@ header {
   }
 
 
-    .error-msg {
+    .errorMsg {
     color: red;
     font-size: 0.85rem;
   }
-  .success-msg {
+  .successMsg {
     color: green;
     font-weight: bold;
   }
@@ -157,7 +157,14 @@ header {
 }
 
 /* autor */
+.page-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
 .author-container {
+  flex: 1;
   text-align: center;
   background-color: var(--bgColor);
   color: var(--brownBg);
@@ -165,7 +172,6 @@ header {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  min-height: calc(100vh - 120px);
 }
 .author-container img {
   max-width: 400px;

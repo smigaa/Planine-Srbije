@@ -1,7 +1,5 @@
 // NAVBAR
-document.addEventListener("DOMContentLoaded", function () {
-  createFooter();
-});
+
 var navItems = [
   { name: "Početna", href: "index.html" },
   { name: "Ture", href: "index.html#ture" },
@@ -21,7 +19,7 @@ navItems.forEach(item => {
 var mountains = [
   {
     mountianName: "Tara",
-    difficulty: "Easy",
+    difficulty: "Laka",
     description: "Laka i pristupačna tura, pogodna za sve uzraste i nivoe kondicije.",
     image: "img/tara.jpg",
     visina: "1544m",
@@ -29,40 +27,40 @@ var mountains = [
   },
   {
     mountianName: "Rtanj",
-    difficulty: "Medium",
-    description: "Srednje teška tura sa prelepim pogledom.",
+    difficulty: "Srednja",
+    description: "Srednje teška tura sa pogledom koji će vas ostaviti bez daha.",
     image: "img/rtanj.jpg",
     visina: "1565m",
     price: "300e"
   },
   {
     mountianName: "Sar",
-    difficulty: "Hard",
-    description: "Teška tura sa izuzetno prelepim pogledom.",
+    difficulty: "Teška",
+    description: "Teška tura na koju nećete zažaliti ako krenete.",
     image: "img/sar.jpg",
     visina: "2651m",
     price: "500e"
   },
   {
     mountianName: "Kopaonik",
-    difficulty: "Hard",
-    description: "Teška tura sa izuzetno prelepim pogledom.",
+    difficulty: "Teška",
+    description: "Teška tura sa spektakularnim pogledom na vrhu.",
     image: "img/kopaonik.jpg",
     visina: "2017m",
     price: "500e"
   },
   {
     mountianName: "Zlatibor",
-    difficulty: "Medium",
-    description: "Srednje teška tura sa prelepim pogledom.",
+    difficulty: "Srednja",
+    description: "Više grad nego planina al ajde",
     image: "img/zlatibor.jpg",
     visina: "1496m",
     price: "400e"
   },
   {
     mountianName: "Stara Planina",
-    difficulty: "Medium",
-    description: "Srednje teška tura sa prelepim pogledom.",
+    difficulty: "Teška",
+    description: "Srednje teška tura sa prelepim pejzažima i bogatom florom i faunom.",
     image: "img/staraplanina.jpg",
     visina: "2169m",
     price: "400e"
@@ -206,10 +204,10 @@ aboutBtn.on("click", function() {
 
 //FORMA
 const formFields = [
-  { id: "firstName", label: "First Name*", type: "text" },
-  { id: "lastName", label: "Last Name*", type: "text" },
+  { id: "firstName", label: "Ime*", type: "text" },
+  { id: "lastName", label: "Prezime*", type: "text" },
   { id: "email", label: "Email*", type: "email" },
-  { id: "password", label: "Password*", type: "password" }
+  { id: "password", label: "Lozinka*", type: "password" }
 ];
 
 const formContainer = document.getElementById("formContainer");
@@ -222,7 +220,7 @@ formContainer.innerHTML = `
         <label class="col-md-4 col-form-label" for="${field.id}">${field.label}</label>
         <div class="col-md-8">
           <input type="${field.type}" id="${field.id}" class="form-control">
-          <div class="error-msg"></div>
+          <div class="errorMsg"></div>
         </div>
       </div>
     `).join("")}
@@ -231,7 +229,7 @@ formContainer.innerHTML = `
     <div id="selectSection"></div>
 
     <div class="text-center">
-      <button class="btn btn-outline-dark">Submit</button>
+      <input class="btn btn-outline-dark" type="submit" value="Submit">
     </div>
 
     <div id="formMessage" class="text-center mt-3"></div>
@@ -250,7 +248,7 @@ document.getElementById("radioSection").innerHTML = `
           <label class="form-check-label">${diff}</label>
         </div>
       `).join("")}
-      <div class="error-msg"></div>
+      <div class="errorMsg"></div>
     </div>
   </div>
 `;
@@ -258,13 +256,13 @@ document.getElementById("radioSection").innerHTML = `
 // Selekt planina
 document.getElementById("selectSection").innerHTML = `
   <div class="row mb-3">
-    <label class="col-md-4 col-form-label" for="mountainSelect">Choose Mountain*</label>
+    <label class="col-md-4 col-form-label" for="mountainSelect">Izaberite planinu</label>
     <div class="col-md-8">
       <select id="mountainSelect" class="form-select">
         <option value="0">Izaberite...</option>
         ${mountains.map(m => `<option value="${m.mountianName}">${m.mountianName}</option>`).join("")}
       </select>
-      <div class="error-msg"></div>
+      <div class="errorMsg"></div>
     </div>
   </div>
 `;
@@ -293,7 +291,7 @@ const validationRules = [
   }
 ];
 
-// greska ako nije validnoSS
+// greska ako nije validno
 
 validationRules.forEach(rule => {
   const input = document.getElementById(rule.id);
@@ -331,7 +329,7 @@ document.getElementById("myForm").addEventListener("submit", function(e) {
 
   // Check za radio
   const radio = document.querySelector('input[name="experience"]:checked');
-  const radioError = document.querySelector("#radioContainer .error-msg");
+  const radioError = document.querySelector("#radioContainer .errorMsg");
   if(!radio){
     radioError.textContent = "Morate izabrati nivo iskustva.";
     isValid = false;
@@ -354,46 +352,13 @@ document.getElementById("myForm").addEventListener("submit", function(e) {
   // Poruka za popunjavanje
   const formMessage = document.getElementById("formMessage");
   if(isValid){
-    formMessage.innerHTML = `<div class="success-msg">Hvala na prijavi!</div>`;
+    formMessage.innerHTML = `<div class="successMsg">Hvala na prijavi!</div>`;
+    document.getElementById("myForm").reset();
   } else {
-    formMessage.innerHTML = `<div class="error-msg">Niste lepo popunili formu.</div>`;
+    formMessage.innerHTML = `<div class="errorMsg">Niste lepo popunili formu.</div>`;
   }
 });
 
-// footer 
-const footerLinks = [
-  {
-    name: "Dokumentacija",
-    url: "dokumentacija.pdf",
-    icon: "fa-solid fa-sitemap"
-  },
-  {
-    name: "Sitemap (XML)",
-    url: "sitemap.xml",
-    icon: "fa-solid fa-file"
-  }
-];
-
-function createFooter() {
-  const footer = document.getElementById("mainFooter");
-
-  footer.className = "text-center py-4";
-
-  let linksHTML = footerLinks.map(link => `
-      <a href="${link.url}" class="text-white mx-3 text-decoration-none">
-        <i class="${link.icon}"></i> ${link.name}
-      </a>
-  `).join("");
-
-  footer.innerHTML = `
-    <div class="container">
-      <div class="mb-3">
-        ${linksHTML}
-      </div>
-      <p class="mb-0">© 2026 Planinarenje u Srbiji. Sva prava zadržana.</p>
-    </div>
-  `;
-}
 
 
 
