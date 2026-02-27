@@ -271,12 +271,12 @@ document.getElementById("selectSection").innerHTML = `
 const validationRules = [
   {
     id: "firstName",
-    regex: /^([A-Z][a-z]{1,})(\s[A-Z][a-z]{1,})*$/,
+    regex: /^([A-ZŠČĆĐŽ][a-zščćđž]{1,})(\s[A-ZŠČĆĐŽ][a-zščćđž]{1,})*$/,
     message: "Ime mora početi velikim slovom i imati makar 2 slova."
   },
   {
     id: "lastName",
-    regex: /^([A-Z][a-z]{1,})(\s[A-Z][a-z]{1,})*$/,
+    regex: /^([A-ZŠČĆĐŽ][a-zščćđž]{1,})(\s[A-ZŠČĆĐŽ][a-zščćđž]{1,})*$/,
     message: "Prezime mora početi velikim slovom i imati makar 2 slova."
   },
   {
@@ -358,6 +358,7 @@ document.getElementById("myForm").addEventListener("submit", function(e) {
     formMessage.innerHTML = `<div class="errorMsg">Niste lepo popunili formu.</div>`;
   }
 });
+
 
 
 
