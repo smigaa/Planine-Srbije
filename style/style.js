@@ -34,7 +34,7 @@ var mountains = [
     price: "300e"
   },
   {
-    mountianName: "Sar",
+    mountianName: "Šar",
     difficulty: "Teška",
     description: "Teška tura na koju nećete zažaliti ako krenete.",
     image: "img/sar.jpg",
@@ -358,6 +358,7 @@ document.getElementById("myForm").addEventListener("submit", function(e) {
     formMessage.innerHTML = `<div class="errorMsg">Niste lepo popunili formu.</div>`;
   }
 });
+
 
 
 
